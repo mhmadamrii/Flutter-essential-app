@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const TryToNavigate(),
+      home: const AllThingsChild(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -120,33 +120,38 @@ class TryToNavigate extends StatefulWidget {
 }
 
 class _TryToNavigateState extends State<TryToNavigate> {
-  int _index = 0;
+  int currentpage = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Hello world"),
       ),
-      body: const Center(
-        child: Text("Lorem ipsum dolor sit amet"),
-      ),
+      body: const LearnPage(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(
           Icons.home,
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _index,
-        onTap: (int newIndex) {
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+        ],
+        onDestinationSelected: (int index) {
           setState(() {
-            _index = newIndex;
+            currentpage = index;
           });
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.account_box), label: "Alarm")
-        ],
+        selectedIndex: currentpage,
       ),
     );
   }
