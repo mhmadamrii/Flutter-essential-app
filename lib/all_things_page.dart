@@ -1,6 +1,7 @@
 import 'dart:developer';
 
-import 'package:basic/allthings-screens/differ_screen.dart';
+import 'package:basic/screens/differ_screen.dart';
+import 'package:basic/screens/todo_screen.dart';
 import 'package:flutter/material.dart';
 
 class AllThingsChild extends StatefulWidget {
@@ -107,6 +108,10 @@ class _AllThingsChildState extends State<AllThingsChild> {
             icon: Icon(Icons.person),
             label: "Profile",
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.today_outlined),
+            label: "TodoApp",
+          ),
         ],
         onTap: (int index) {
           switch (index) {
@@ -122,6 +127,15 @@ class _AllThingsChildState extends State<AllThingsChild> {
                   builder: ((context) => const DifferScreen()),
                 ),
               );
+              break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => const TodoApp()),
+                ),
+              );
+              break;
           }
         },
       ),
