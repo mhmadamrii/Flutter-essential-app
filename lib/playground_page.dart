@@ -13,7 +13,7 @@ class Playground extends StatelessWidget {
           "Hello world",
         ),
       ),
-      body: const CounterApp(),
+      body: const ChildPlayground(),
     );
   }
 }
@@ -65,6 +65,31 @@ class _CounterAppState extends State<CounterApp> {
               child: const Icon(Icons.remove),
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ChildPlayground extends StatelessWidget {
+  const ChildPlayground({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.blue, Colors.green],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: const Center(
+          child: Text(
+            "Hello world",
+            style: TextStyle(fontSize: 50),
+          ),
         ),
       ),
     );
