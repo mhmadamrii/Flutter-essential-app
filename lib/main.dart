@@ -12,7 +12,7 @@ class TodoApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TodoScreen(),
+      home: const TodoScreen(),
     );
   }
 }
