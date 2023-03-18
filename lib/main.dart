@@ -1,5 +1,3 @@
-import 'package:basic/screens/homepage.dart';
-import 'package:basic/screens/profile_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -9,62 +7,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const RootPage(),
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-        fontFamily: 'Georgia',
-      ),
+    return const MaterialApp(
+      home: Whatever(),
     );
   }
 }
 
-class RootPage extends StatefulWidget {
-  const RootPage({super.key});
+class Whatever extends StatefulWidget {
+  const Whatever({super.key});
 
   @override
-  State<RootPage> createState() => _RootPageState();
+  State<Whatever> createState() => _WhateverState();
 }
 
-class _RootPageState extends State<RootPage> {
-  int currentPage = 0;
-  List<Widget> pages = const [Homepage(), ProfilePage()];
+class _WhateverState extends State<Whatever> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Hello world"),
       ),
-      body: pages[currentPage],
-      floatingActionButton: FloatingActionButton(
+      body: Center(
+          child: ElevatedButton(
         onPressed: () {},
-        child: const Icon(
-          Icons.add,
+        child: const Text(
+          "Here we go",
         ),
-      ),
-      bottomNavigationBar: NavigationBar(
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(
-              Icons.home,
-            ),
-            label: "home",
-          ),
-          NavigationDestination(
-            icon: Icon(
-              Icons.person,
-            ),
-            label: "person",
-          ),
-        ],
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPage = index;
-          });
-        },
-        selectedIndex: currentPage,
-      ),
+      )),
     );
   }
 }
