@@ -26,6 +26,15 @@ class _MainPageState extends State<MainPage> {
 
   // store user inpput
   String userInput = '';
+  int _currentIndex = 0;
+  final tabs = [
+    Center(
+      child: Text("Home"),
+    ),
+    Center(
+      child: Text("Profile"),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +85,18 @@ class _MainPageState extends State<MainPage> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "profile"),
+        ],
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }
