@@ -27,7 +27,7 @@ class _MainPageState extends State<MainPage> {
   // store user inpput
   String userInput = '';
   int _currentIndex = 0;
-  final tabs = [
+  final tabs = const [
     Center(
       child: Text("Home"),
     ),
