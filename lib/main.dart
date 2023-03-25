@@ -1,4 +1,5 @@
 import 'package:basic/screens/homepage.dart';
+import 'package:basic/screens/trying.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0XFFF5F5F3),
       ),
       routes: {
-        "/": (context) => const Homepage(),
+        "/": (context) => const Trying(),
       },
     );
   }

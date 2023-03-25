@@ -77,7 +77,7 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
 
-          // categories
+          // categories label
           const Padding(
             padding: EdgeInsets.only(
               top: 20,
@@ -89,13 +89,15 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
 
+          // categories widget
           const CategoriesWidget(),
 
+          // divider
           const SizedBox(
             height: 10,
           ),
 
-          // popular items
+          // popular items label
           const Padding(
             padding: EdgeInsets.only(
               top: 20,
@@ -112,6 +114,18 @@ class _HomepageState extends State<Homepage> {
 
           // popular items widget
           const PopularItemsWidget(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home"
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Person"
+          ),
         ],
       ),
     );
