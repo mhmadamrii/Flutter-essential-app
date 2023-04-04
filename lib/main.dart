@@ -5,6 +5,7 @@ import 'package:basic/dropdown_page.dart';
 import 'package:basic/home_page.dart';
 import 'package:basic/learn_page.dart';
 import 'package:basic/playground_page.dart';
+import 'package:basic/screens/fetchdummy_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Rootpagee(),
+      home: const FetchDummy(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

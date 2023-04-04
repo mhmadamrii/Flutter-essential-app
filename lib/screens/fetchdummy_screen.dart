@@ -1,5 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers
-
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class FetchDummy extends StatelessWidget {
@@ -8,36 +7,77 @@ class FetchDummy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Fetch dummy",
+      // backgroundColor: Colors.blue,
+      backgroundColor: Colors.white,
+      body: const Apollo(),
+      bottomNavigationBar: CurvedNavigationBar(
+        buttonBackgroundColor: Colors.amber,
+        backgroundColor: Colors.white,
+        animationDuration: const Duration(
+          milliseconds: 400,
         ),
-      ),
-      body: const ChildFetchDummy(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(
-          Icons.hourglass_empty_sharp,
-        ),
+        items: const <Widget>[
+          Icon(
+            Icons.home_filled,
+            size: 30,
+          ),
+          Icon(
+            Icons.person,
+            size: 30,
+          ),
+          Icon(
+            Icons.build,
+            size: 30,
+          )
+        ],
       ),
     );
   }
 }
 
-class ChildFetchDummy extends StatefulWidget {
-  const ChildFetchDummy({super.key});
+class Apollo extends StatefulWidget {
+  const Apollo({super.key});
 
   @override
-  State<ChildFetchDummy> createState() => _ChildFetchDummyState();
+  State<Apollo> createState() => _ApolloState();
 }
 
-class _ChildFetchDummyState extends State<ChildFetchDummy> {
+class _ApolloState extends State<Apollo> {
+  final _inputController = TextEditingController();
+  String name = "";
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const Center(
-        child: Text(
-          "Hello world",
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 30,
+          vertical: 30,
+        ),
+        child: Column(
+          children: [
+            TextField(
+              controller: _inputController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Enter a search term",
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  name = _inputController.text;
+                });
+              },
+              child: const Text("Press here"),
+            ),
+            Text(
+              name,
+              style: const TextStyle(
+                fontSize: 40,
+              ),
+            )
+          ],
         ),
       ),
     );
