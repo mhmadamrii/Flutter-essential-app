@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class FetchDummy extends StatelessWidget {
   const FetchDummy({super.key});
@@ -46,6 +47,13 @@ class _ApolloState extends State<Apollo> {
   final _inputController = TextEditingController();
   String name = "";
 
+  // fetch api
+  final baseUrl = "https://642b9e08208dfe25471b9280.mockapi.io/api/v3/name";
+
+  Future<http.Response> fetchData() {
+    return http.get(Uri.parse(baseUrl));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -76,7 +84,8 @@ class _ApolloState extends State<Apollo> {
               style: const TextStyle(
                 fontSize: 40,
               ),
-            )
+            ),
+
           ],
         ),
       ),
