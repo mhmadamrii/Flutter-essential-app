@@ -1,3 +1,5 @@
+import 'package:basic/screens/Fetch_data.dart';
+import 'package:basic/screens/Homepage.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -8,16 +10,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Homepage(),
+      title: "Basic",
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Homepage(),
+        '/second': (context) => const FetchData()
+      },
     );
-  }
-}
-
-class Homepage extends StatelessWidget {
-  const Homepage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
