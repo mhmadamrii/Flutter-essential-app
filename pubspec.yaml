@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3
   http: ^0.13.5
+  google_fonts: ^4.0.4
+  faker: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -78,9 +80,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
-  #   - family: Schyler
+  #   - family: OoohBaby
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: assets/fonts/OoohBaby-Regular.ttr
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
