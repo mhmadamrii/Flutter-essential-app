@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -7,96 +9,91 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MainPage(),
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const RootPage(),
     );
   }
 }
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class RootPage extends StatefulWidget {
+  const RootPage({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<RootPage> createState() => _RootPageState();
 }
 
-class _MainPageState extends State<MainPage> {
-  // make controller here
-  final _textController = TextEditingController();
-
-  // store user inpput
-  String userInput = '';
+class _RootPageState extends State<RootPage> {
   int _currentIndex = 0;
-  final tabs = const [
-    Center(
-      child: Text("Home"),
-    ),
-    Center(
-      child: Text("Profile"),
-    ),
-  ];
 
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Lorem ipsum",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(40),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // display text
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1),
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.builder(
+          itemCount: 12,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            mainAxisSpacing: 10.0,
+            crossAxisSpacing: 10.0,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            // membangun tampilan untuk setiap item
+            return Container(
+              decoration: BoxDecoration(
+                color: Colors.primaries[index % Colors.primaries.length],
+                border: Border.all(
+                  width: 1,
                 ),
+              ),
+              child: Center(
                 child: Text(
-                  userInput,
+                  'Item $index',
                   style: const TextStyle(
-                    fontSize: 40,
+                    color: Colors.deepPurple,
+                    fontSize: 20.0,
                   ),
                 ),
               ),
-            ),
-            TextField(
-              controller: _textController,
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                hintText: "Placeholder",
-                labelText: "Input here",
-                suffixIcon: IconButton(
-                  onPressed: (() {
-                    _textController.clear();
-                  }),
-                  icon: const Icon(Icons.clear),
-                ),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: (() {
-                setState(() {
-                  userInput = _textController.text;
-                });
-              }),
-              child: const Text(
-                "Press here",
-              ),
-            ),
-          ],
+            );
+          },
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
+        onTap: onTabTapped,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "profile"),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+            ),
+            label: "Home"
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.mail,
+            ),
+            label: "mail"
+          )
         ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
       ),
     );
   }

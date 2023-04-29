@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
   curved_navigation_bar: ^1.0.3
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:
