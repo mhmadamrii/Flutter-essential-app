@@ -1,5 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers
-
+import 'package:basic/widgets/MyAppbar.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -10,90 +9,92 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      debugShowCheckedModeBanner: false,
-      home: const RootPage(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => const Homepage()
+      // },
+      home: const Homepage(),
     );
   }
 }
 
-class RootPage extends StatefulWidget {
-  const RootPage({super.key});
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
 
   @override
-  State<RootPage> createState() => _RootPageState();
+  State<Homepage> createState() => _HomepageState();
 }
 
-class _RootPageState extends State<RootPage> {
-  int _currentIndex = 0;
-
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+class _HomepageState extends State<Homepage> {
+  List<BottomNavigationBarItem> bottomNavItems = [
+    BottomNavigationBarItem(
+      icon: Image.asset(
+        "images/home.png",
+        width: 24,
+        height: 24,
+      ),
+      label: "Home",
+    ),
+    BottomNavigationBarItem(
+      icon: Image.asset(
+        "images/search.png",
+        width: 24,
+        height: 24,
+      ),
+      label: "Search",
+    ),
+    BottomNavigationBarItem(
+      icon: Image.asset(
+        "images/video-player.png",
+        width: 24,
+        height: 24,
+      ),
+      label: "Reels",
+    ),
+    BottomNavigationBarItem(
+      icon: Image.asset(
+        "images/bag.png",
+        width: 24,
+        height: 24,
+      ),
+      label: "Advertisement",
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(
+        Icons.person,
+        color: Colors.black,
+      ),
+      label: "Profile",
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Lorem ipsum",
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
+      backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GridView.builder(
-          itemCount: 12,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 10.0,
-            crossAxisSpacing: 10.0,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            // membangun tampilan untuk setiap item
-            return Container(
-              decoration: BoxDecoration(
-                color: Colors.primaries[index % Colors.primaries.length],
-                border: Border.all(
-                  width: 1,
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  'Item $index',
-                  style: const TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 20.0,
-                  ),
-                ),
-              ),
-            );
-          },
+        padding: const EdgeInsets.only(
+          top: 15,
+          left: 5,
+          right: 5,
+        ),
+        child: Column(
+          children: const [
+            MyAppbar(),
+          ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabTapped,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-            ),
-            label: "Home"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.mail,
-            ),
-            label: "mail"
-          )
-        ],
+        iconSize: 35,
+        elevation: 0,
+        backgroundColor: Colors.white,
+        items: bottomNavItems,
+        selectedItemColor: Colors.black,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
       ),
     );
   }
