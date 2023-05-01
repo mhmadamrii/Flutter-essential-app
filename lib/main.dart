@@ -1,4 +1,5 @@
 import 'package:basic/screens/home.dart';
+import 'package:basic/screens/instagram.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -9,10 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/home',
+      initialRoute: '/instagram',
       debugShowCheckedModeBanner: false,
       routes: {
-        '/home': (context) => const Homepage(),
+        '/instagram': (context) => const Instagram(),
       },
     );
   }
