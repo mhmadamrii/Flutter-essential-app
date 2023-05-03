@@ -1,4 +1,4 @@
-import 'package:basic/screens/slide_menu.dart';
+import 'package:basic/screen/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -9,10 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const SlideMenu(),
+      home: const Homepage(),
     );
   }
 }
