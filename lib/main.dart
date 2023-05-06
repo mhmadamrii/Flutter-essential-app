@@ -1,165 +1,175 @@
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 
-void main() {
-  var faker = new Faker();
-  runApp(const MyApp());
-}
+import 'cart.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Homepage(),
+      home: const Rootpage(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialRoute: '/',
+      routes: {
+        '/cart': (context) => const Cart(),
+      },
     );
   }
 }
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+class Rootpage extends StatefulWidget {
+  const Rootpage({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  State<Rootpage> createState() => _RootpageState();
 }
 
-class _HomepageState extends State<Homepage> {
-  List<User> data = [
-    User(name: faker.person.name(), email: faker.internet.email()),
-    User(name: faker.person.name(), email: faker.internet.email()),
-    User(name: faker.person.name(), email: faker.internet.email()),
-    User(name: faker.person.name(), email: faker.internet.email()),
-  ];
-
-  Future<void> refreshData() async {
-    await Future.delayed(const Duration(seconds: 1));
-    data.clear();
-
-    for (var i = 0; i < 5; i++) {
-      data.add(
-        User(
-          name: faker.person.name(),
-          email: faker.internet.email(),
-        ),
-      );
-    }
-    setState(() {
-      return;
-    });
-  }
-
-  Future<List<User>> futureData = getData();
-
-  static Future<List<User>> getData() async {
-    await Future.delayed(const Duration(seconds: 2));
-    var faker = new Faker();
-    var data = List.generate(
-      5,
-      (index) => User(
-        name: faker.person.name(),
-        email: faker.internet.email(),
-      ),
-    );
-    return data;
-  }
-
+class _RootpageState extends State<Rootpage> {
   int _currentScreen = 0;
 
+  final List<Widget> _screen = [
+    const Home(),
+    const Setting(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Pull to refresh"),
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(
-          10,
+        title: const Text(
+          "Appbar",
         ),
-        child: RefreshIndicator(
-          onRefresh: () async {
-            setState(() {
-              futureData = getData();
-            });
-          },
-          child: FutureBuilder<List<User>>(
-            future: futureData,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                var data = snapshot.data!;
-                return ListView.builder(
-                  itemCount: data.length,
-                  itemBuilder: (context, index) => ListTile(
-                    leading: CircleAvatar(
-                      child: Text("$index"),
-                    ),
-                    title: Text("data: ${data[index].name}"),
-                    subtitle: Text(data[index].email),
-                  ),
-                );
-              } else {
-                return _buildSkeleton();
-              }
-            },
-          ),
-        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: null,
+            icon: const Icon(
+              Icons.shopping_basket,
+            ),
+          )
+        ],
       ),
+      body: _screen[_currentScreen],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentScreen,
-        onTap: (int newIndex) {
+        onTap: (int newScreen) {
           setState(() {
-            _currentScreen = newIndex;
+            print("current screen ${_currentScreen}");
+            _currentScreen = newScreen;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: "Home"),
+            icon: Icon(
+              Icons.home,
+            ),
+            label: "Home",
+          ),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-              ),
-              label: "Person")
+            icon: Icon(
+              Icons.person,
+            ),
+            label: "Person",
+          )
         ],
       ),
     );
   }
 }
 
-class User {
-  late String name;
-  late String email;
+class Home extends StatefulWidget {
+  const Home({super.key});
 
-  User({required this.name, required this.email});
+  @override
+  State<Home> createState() => _HomeState();
 }
 
-Widget _buildSkeleton() {
-  return Shimmer.fromColors(
-    baseColor: Colors.grey[300]!,
-    highlightColor: Colors.grey[100]!,
-    child: ListView.builder(
-      itemCount: 5,
-      itemBuilder: (context, index) => ListTile(
-        leading: const CircleAvatar(),
-        title: Container(
-          height: 20,
-          width: double.infinity,
-          color: Colors.white,
-        ),
-        subtitle: Container(
-          height: 16,
-          width: double.infinity,
-          color: Colors.white,
+class _HomeState extends State<Home> {
+  int _count = 0;
+
+  void _increment() {
+    setState(() {
+      _count++;
+    });
+  }
+
+  void _decrement() {
+    setState(() {
+      _count--;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(
+        20,
+      ),
+      child: Center(
+        child: Column(
+          children: [
+            const Text(
+              'Current Count: ',
+              style: TextStyle(
+                fontSize: 24,
+              ),
+            ),
+            Text(
+              "$_count",
+              style: const TextStyle(
+                fontSize: 40,
+              ),
+            ),
+            if (_count > 0)
+              const Text(
+                "You're doing great",
+              ),
+            if (_count < 0)
+              const Text(
+                'Be careful!',
+                style: TextStyle(fontSize: 18, color: Colors.red),
+              ),
+            ElevatedButton(
+              onPressed: _increment,
+              child: const Text(
+                "Increment",
+              ),
+            ),
+            OutlinedButton(
+              onPressed: _decrement,
+              child: const Text(
+                "Decrement",
+              ),
+            )
+          ],
         ),
       ),
-    ),
-  );
+    );
+  }
 }
 
+class Person extends StatefulWidget {
+  const Person({super.key});
+
+  @override
+  State<Person> createState() => _PersonState();
+}
+
+class _PersonState extends State<Person> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+class Setting extends StatelessWidget {
+  const Setting({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
