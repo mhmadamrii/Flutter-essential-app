@@ -1,5 +1,5 @@
+import 'package:basic/screens/homepage.dart';
 import 'package:flutter/material.dart';
-import 'routes.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,13 +10,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Instagram Clone app',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.grey,
       ),
-      initialRoute: '/',
-      routes: routes,
+      title: "Flutter Demo",
+      home: const Homepage(),
     );
   }
 }
