@@ -25,8 +25,34 @@ class _StoriesState extends State<Stories> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> avatarWidgets = _avatars.map((avatarURL) {
+      return Container(
+        margin: const EdgeInsets.only(
+          right: 5,
+          top: 10,
+        ),
+        padding: const EdgeInsets.all(2),
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: Colors.white,
+          gradient: const LinearGradient(
+            colors: [
+              Color(0xFFDE0046),
+              Color(0xFFF7A34B),
+            ],
+          ),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: Image.network(avatarURL),
+        ),
+      );
+    }).toList();
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      padding: const EdgeInsets.symmetric(horizontal: 0.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -35,216 +61,7 @@ class _StoriesState extends State<Stories> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xFFDE0046),
-                            Color(0xFFF7A34B),
-                          ],
-                        ),
-                      ),
-                      child: Container(
-                        padding: const EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            'https://i.pravatar.cc/100?img=10',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text("Hello world")
-                  ],
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xFFDE0046),
-                            Color(0xFFF7A34B),
-                          ],
-                        ),
-                      ),
-                      child: Container(
-                        padding: const EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            'https://i.pravatar.cc/100?img=10',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text("Hello world")
-                  ],
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xFFDE0046),
-                            Color(0xFFF7A34B),
-                          ],
-                        ),
-                      ),
-                      child: Container(
-                        padding: const EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            'https://i.pravatar.cc/100?img=10',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text("Hello world")
-                  ],
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xFFDE0046),
-                            Color(0xFFF7A34B),
-                          ],
-                        ),
-                      ),
-                      child: Container(
-                        padding: const EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            'https://i.pravatar.cc/100?img=10',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text("Hello world")
-                  ],
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xFFDE0046),
-                            Color(0xFFF7A34B),
-                          ],
-                        ),
-                      ),
-                      child: Container(
-                        padding: const EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            'https://i.pravatar.cc/100?img=10',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text("Hello world")
-                  ],
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(2),
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xFFDE0046),
-                            Color(0xFFF7A34B),
-                          ],
-                        ),
-                      ),
-                      child: Container(
-                        padding: const EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            'https://i.pravatar.cc/100?img=10',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text("Hello world")
-                  ],
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
+                ...avatarWidgets,
               ],
             ),
           ),

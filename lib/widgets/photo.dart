@@ -1,6 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 
 class Photos extends StatefulWidget {
   final String userName;
@@ -80,10 +81,8 @@ class _PhotosState extends State<Photos> {
                 const SizedBox(
                   width: 10,
                 ),
-                Icon(
-                  isLiked ? Icons.favorite_rounded : Icons.favorite_border,
-                  color: isLiked ? Colors.red : null,
-                  size: 30,
+                LikeButton(
+                  likeCount: widget.likes,
                 ),
                 const SizedBox(
                   width: 10,
@@ -157,7 +156,7 @@ class _PhotosState extends State<Photos> {
                   )
                 ],
               ),
-            )
+            ),
           ],
         ),
         const SizedBox(

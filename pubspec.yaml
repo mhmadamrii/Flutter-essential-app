@@ -40,6 +40,7 @@ dependencies:
   http: ^0.13.5
   google_fonts: ^4.0.4
   faker: ^2.1.0
+  like_button: ^2.0.5
 
 dev_dependencies:
   flutter_test:
