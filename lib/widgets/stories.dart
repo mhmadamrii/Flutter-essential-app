@@ -25,20 +25,230 @@ class _StoriesState extends State<Stories> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: _avatars.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              radius: 30,
-              backgroundImage: NetworkImage(_avatars[index]),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(2),
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFDE0046),
+                            Color(0xFFF7A34B),
+                          ],
+                        ),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.network(
+                            'https://i.pravatar.cc/100?img=10',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text("Hello world")
+                  ],
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(2),
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFDE0046),
+                            Color(0xFFF7A34B),
+                          ],
+                        ),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.network(
+                            'https://i.pravatar.cc/100?img=10',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text("Hello world")
+                  ],
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(2),
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFDE0046),
+                            Color(0xFFF7A34B),
+                          ],
+                        ),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.network(
+                            'https://i.pravatar.cc/100?img=10',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text("Hello world")
+                  ],
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(2),
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFDE0046),
+                            Color(0xFFF7A34B),
+                          ],
+                        ),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.network(
+                            'https://i.pravatar.cc/100?img=10',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text("Hello world")
+                  ],
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(2),
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFDE0046),
+                            Color(0xFFF7A34B),
+                          ],
+                        ),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.network(
+                            'https://i.pravatar.cc/100?img=10',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text("Hello world")
+                  ],
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(2),
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFDE0046),
+                            Color(0xFFF7A34B),
+                          ],
+                        ),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.network(
+                            'https://i.pravatar.cc/100?img=10',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text("Hello world")
+                  ],
+                ),
+                const SizedBox(
+                  width: 7,
+                ),
+              ],
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }
