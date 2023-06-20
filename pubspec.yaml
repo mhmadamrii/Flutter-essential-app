@@ -68,6 +68,10 @@ flutter:
     - images/einstein.jpg
     - images/rocket.png
     - images/handle-rocket.png
+    - images/travel-book.png
+    - images/grapy-check-in.png
+    - images/lounge-hiking.png
+    - images/maps-travel.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

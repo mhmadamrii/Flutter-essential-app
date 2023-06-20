@@ -10,31 +10,43 @@ class Homepage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Flutter Mapp",
+          "Traveleme",
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             CardImage(
-              itemClass: ItemClass(title: "Hello"),
+              itemClass: ItemClass(
+                title: "Destination",
+                imagePath: "images/maps-travel.png",
+              ),
             ),
             Row(
               children: [
                 Expanded(
                   child: CardImage(
-                    itemClass: ItemClass(title: "Fucking shit bro!"),
+                    itemClass: ItemClass(
+                      title: "Agendas",
+                      imagePath: "images/travel-book.png",
+                    ),
                   ),
                 ),
                 Expanded(
                   child: CardImage(
-                    itemClass: ItemClass(title: "Average shit"),
+                    itemClass: ItemClass(
+                      title: "Preparation",
+                      imagePath: "images/lounge-hiking.png",
+                    ),
                   ),
                 ),
               ],
             ),
             CardImage(
-              itemClass: ItemClass(title: "Yo this shit?"),
+              itemClass: ItemClass(
+                title: "Yo this shit?",
+                imagePath: "images/handle-rocket.png",
+              ),
             )
           ],
         ),

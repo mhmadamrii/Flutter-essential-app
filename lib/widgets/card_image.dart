@@ -1,4 +1,5 @@
 import 'package:basic/class/item_class.dart';
+import 'package:basic/screens/description.dart';
 import 'package:flutter/material.dart';
 
 class CardImage extends StatelessWidget {
@@ -13,7 +14,16 @@ class CardImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("clicked");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return Description(
+                itemClass: itemClass,
+              );
+            },
+          ),
+        );
       },
       child: Card(
         child: Container(
@@ -25,7 +35,7 @@ class CardImage extends StatelessWidget {
                 height: 10,
               ),
               Image.asset(
-                "images/handle-rocket.png",
+                itemClass.imagePath,
               ),
               Text(
                 itemClass.title,
