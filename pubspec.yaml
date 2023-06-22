@@ -72,6 +72,9 @@ flutter:
     - images/maps-travel.png
     - images/background.png
     - images/pic-1.png
+    - images/ig.png
+    - images/tw.png
+    - images/fb.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
