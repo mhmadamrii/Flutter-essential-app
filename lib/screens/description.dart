@@ -19,9 +19,27 @@ class _DescriptionState extends State<Description> {
         title: Text(
           widget.itemClass.title,
         ),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+          ),
+        ),
         actions: [
           IconButton(
-            onPressed: () => print("fuck"),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text(
+                    "Hello snackbar!",
+                  ),
+                  behavior: SnackBarBehavior.floating,
+                ),
+              );
+            },
             icon: const Icon(
               Icons.info,
             ),
@@ -59,6 +77,9 @@ class _DescriptionState extends State<Description> {
                         fontSizeCustom = 60;
                       });
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                    ),
                     child: const Text("Large Title"),
                   ),
                   FilledButton(
