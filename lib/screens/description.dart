@@ -11,6 +11,7 @@ class Description extends StatefulWidget {
 }
 
 class _DescriptionState extends State<Description> {
+  double fontSizeCustom = 30;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +19,14 @@ class _DescriptionState extends State<Description> {
         title: Text(
           widget.itemClass.title,
         ),
+        actions: [
+          IconButton(
+            onPressed: () => print("fuck"),
+            icon: const Icon(
+              Icons.info,
+            ),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -29,19 +38,35 @@ class _DescriptionState extends State<Description> {
                 spacing: 30,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        fontSizeCustom = 25;
+                      });
+                    },
                     child: const Text("Small Title"),
                   ),
                   OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        fontSizeCustom = 50;
+                      });
+                    },
                     child: const Text("Medium Title"),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        fontSizeCustom = 60;
+                      });
+                    },
                     child: const Text("Large Title"),
                   ),
                   FilledButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        fontSizeCustom = 200;
+                      });
+                    },
                     child: const Text("Huge Title"),
                   )
                 ],
@@ -49,8 +74,8 @@ class _DescriptionState extends State<Description> {
               FittedBox(
                 child: Text(
                   widget.itemClass.title,
-                  style: const TextStyle(
-                    fontSize: 100,
+                  style: TextStyle(
+                    fontSize: fontSizeCustom,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
