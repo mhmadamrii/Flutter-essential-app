@@ -44,7 +44,7 @@ class Homepage extends StatelessWidget {
             ),
             CardImage(
               itemClass: ItemClass(
-                title: "Yo this shit?",
+                title: "Yo this Travel?",
                 imagePath: "images/handle-rocket.png",
               ),
             )

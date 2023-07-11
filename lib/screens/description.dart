@@ -34,7 +34,7 @@ class _DescriptionState extends State<Description> {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text(
-                    "Hello snackbar!",
+                    "Some snackbars!",
                   ),
                   behavior: SnackBarBehavior.floating,
                 ),
@@ -79,6 +79,7 @@ class _DescriptionState extends State<Description> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
+                      foregroundColor: Colors.white
                     ),
                     child: const Text("Large Title"),
                   ),

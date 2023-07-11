@@ -23,19 +23,19 @@ class Profile extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-              "Flutter mapp",
+              "John Doe",
             ),
             leading: Icon(Icons.person),
           ),
           ListTile(
             title: Text(
-              "fluttermap@gmail.com",
+              "fluttery@gmail.com",
             ),
             leading: Icon(Icons.email),
           ),
           ListTile(
             title: Text(
-              "Flutter mapp",
+              "https://flutterorg.com",
             ),
             leading: Icon(Icons.web),
           ),
