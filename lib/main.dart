@@ -1,3 +1,4 @@
+import 'package:basic/screens/playground.dart';
 import 'package:basic/screens/todo_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class TodoApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const TodoScreen(),
+      home: const Playground(),
     );
   }
 }
