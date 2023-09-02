@@ -1,5 +1,5 @@
-// ignore_for_file: sized_box_for_whitespace
-
+// ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers
+import 'package:basic/helpers/dummy_product.dart';
 import 'package:basic/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
@@ -21,7 +21,7 @@ class _HomepageState extends State<Homepage> {
   void initState() {
     super.initState();
     // call function when the widget first mount
-    fetchData();
+    // fetchData();
   }
 
   Future<void> fetchData() async {
@@ -57,34 +57,45 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 0),
-        child: Column(
-          children: [
-            const Text("Below is product list"),
-            Expanded(
-              child: ListView.builder(itemBuilder: (context, index) {
-                final product = products[index];
-                return Card(
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 100,
-                        child: Image.network(
-                          product.imageUrl,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      ListTile(
-                        title: Text(product.name),
-                        subtitle: Text(product.description),
-                      ),
-                    ],
-                  ),
-                );
-              }),
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text("Hello world"),
+              ListView.builder(
+                itemCount: dummyProducts.length,
+                itemBuilder: (context, index) {
+                  final product = dummyProducts[index];
+                  return CardProduct(
+                    name: product['name'],
+                    price: product['price'],
+                  );
+                },
+              )
+            ],
+          ),
         ),
+      ),
+    );
+  }
+}
+
+class CardProduct extends StatelessWidget {
+  String name = '';
+  int price = 0;
+
+  CardProduct({required this.name, required this.price});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        children: [
+          Text(name),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(price.toString()),
+          ),
+        ],
       ),
     );
   }
