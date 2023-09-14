@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("FakeStore"),
+          title: const Text("Fake Data"),
           elevation: 0,
         ),
         body: _screens[_selectedIndex],
