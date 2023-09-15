@@ -1,3 +1,4 @@
+import 'package:basic/screens/homepage_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 1.6,
+              height: MediaQuery.of(context).size.height / 1.8,
               decoration: const BoxDecoration(
                 color: Color(
                   0xFF674AFF,
@@ -42,7 +43,7 @@ class WelcomeScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 2.666,
+                height: MediaQuery.of(context).size.height / 2.222,
                 padding: const EdgeInsets.only(
                   top: 40,
                   bottom: 30,
@@ -58,7 +59,7 @@ class WelcomeScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 2.666,
+                height: MediaQuery.of(context).size.height / 2.222,
                 padding: const EdgeInsets.only(
                   top: 40,
                   bottom: 30,
@@ -69,9 +70,9 @@ class WelcomeScreen extends StatelessWidget {
                     topLeft: Radius.circular(70),
                   ),
                 ),
-                child: const Column(
+                child: Column(
                   children: [
-                    Text(
+                    const Text(
                       "Learning is everything",
                       style: TextStyle(
                         fontSize: 25,
@@ -80,6 +81,53 @@ class WelcomeScreen extends StatelessWidget {
                         wordSpacing: 2,
                       ),
                     ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 40,
+                      ),
+                      child: Text(
+                        "Learning with pleasure with dear programmer, wherever you are",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: Colors.black.withOpacity(0.6),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Material(
+                      color: const Color(0xFF674AEF),
+                      borderRadius: BorderRadius.circular(10),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Homepage(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 80,
+                            vertical: 15,
+                          ),
+                          child: const Text(
+                            "Get Start",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1),
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
