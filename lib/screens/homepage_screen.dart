@@ -30,18 +30,26 @@ class _HomepageState extends State<Homepage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.dashboard,
-                      size: 30,
-                      color: Colors.white,
+                    IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      icon: const Icon(
+                        Icons.dashboard,
+                        size: 30,
+                        color: Colors.white,
+                      ),
                     ),
-                    Icon(
-                      Icons.notifications,
-                      size: 30,
-                      color: Colors.white,
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.notifications,
+                        size: 30,
+                        color: Colors.white,
+                      ),
                     )
                   ],
                 ),
