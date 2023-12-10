@@ -1,4 +1,5 @@
 import 'package:basic/config/app_router.dart';
+import 'package:basic/config/theme.dart';
 import 'package:basic/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.onGenerateRoute,
       initialRoute: Homescreen.routeName,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: theme(),
       home: const Homescreen(),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:basic/screens/cart_screen.dart';
 import 'package:basic/screens/home_screen.dart';
 import 'package:basic/screens/wishlist_screen.dart';
+import 'package:basic/screens/catalog_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -14,6 +15,8 @@ class AppRouter {
         return Cart.route();
       case '/wishlist':
         return Wishlist.route();
+      case '/catalog':
+        return Catalog.route();
       default:
         return _errorRoute();
     }
