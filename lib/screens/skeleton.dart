@@ -1,3 +1,4 @@
+import 'package:basic/screens/challenge.dart';
 import 'package:basic/screens/homepage.dart';
 import 'package:basic/screens/setting.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class _SkeletonState extends State<Skeleton> {
   List<Widget> pages = const [
     Homepage(),
     Setting(),
+    Challenge(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,10 @@ class _SkeletonState extends State<Skeleton> {
             icon: Icon(Icons.settings),
             label: 'setting',
           ),
+          NavigationDestination(
+            icon: Icon(Icons.pause_presentation_outlined),
+            label: 'challenge',
+          )
         ],
         onDestinationSelected: (int index) {
           setState(() {
