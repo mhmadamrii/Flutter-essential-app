@@ -38,6 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3
   http: ^0.13.5
+  flex_seed_scheme: ^1.4.0
+  google_fonts: ^4.0.4
+  atomsbox: ^0.4.0
 
 dev_dependencies:
   flutter_test:
