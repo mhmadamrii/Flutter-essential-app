@@ -7,17 +7,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const Homepage(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: Text("Hello world"),
+        ),
+      ),
     );
-  }
-}
-
-class Homepage extends StatelessWidget {
-  const Homepage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
