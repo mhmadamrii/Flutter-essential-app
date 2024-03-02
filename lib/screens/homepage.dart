@@ -1,6 +1,4 @@
-import 'package:basic/providers/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -9,22 +7,21 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Home',
-          style: TextStyle(
-            color: Colors.white,
-          ),
+        title: Image.asset(
+          "images/images/amazon.png",
+          height: 25,
         ),
-        backgroundColor: Colors.blue,
+        actions: const [
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: CircleAvatar(
+              backgroundImage: AssetImage("images/images/amazon.png"),
+            ),
+          )
+        ],
       ),
       body: Center(
-        child: Text(
-          context.watch<UserProvider>().userName,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
-          ),
-        ),
+        child: Text('Hello world lorem ipsum'),
       ),
     );
   }
