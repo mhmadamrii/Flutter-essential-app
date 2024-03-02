@@ -29,7 +29,7 @@ class HomeView extends StatelessWidget {
           padding: EdgeInsets.all(AppConstants.sm),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [],
+            children: [],
           ),
         ),
       ),
